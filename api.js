@@ -1,7 +1,11 @@
 const express = require('express')
+const mongoose = require('mongoose')
 const user = require('./user.controller')
 const app = express()
 const PORT = 3000
+
+app.use(express.json())
+mongoose.connect('mongodb+srv://mrp4sten:mrp4sten@firstcompletenodeapp.ch50k.mongodb.net/?retryWrites=true&w=majority')
 
 app.get('/', user.list)
 app.get('/:id', user.get)
